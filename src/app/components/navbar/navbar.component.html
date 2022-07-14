@@ -1,52 +1,24 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- Container wrapper -->
-  <div class="container-fluid">
-    <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0"  *ngIf="!token" routerLink="/home" >
-        <img
-          src="https://scontent.fgua9-1.fna.fbcdn.net/v/t39.30808-6/293650613_110039758441263_8096362449684782960_n.png?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=wVKknl4Ob8wAX8d0q__&_nc_ht=scontent.fgua9-1.fna&oh=00_AT-qO2BXRtSyGajlJhHMWH1jLRai8cJ2nwOXvNb6idgcXw&oe=62D4AA1F"
-          height="25"
-          alt="Fit App"
-          loading="lazy"
-        />
-      </a>
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!token" routerLink="/home" >Home</a>
+<nav>
+  <body>
+    <div class="navbar-nav">
+    <ul>
+      <li style="--clr:#31C211" class="text-left">
+        <a routerLink="/" data-text="&nbsp;FITAPP">&nbsp;FITAPP&nbsp;</a>
+      </li>
+      <li style="--clr:#ff6493">
+        <a *ngIf="!token"  routerLink="/login" data-text="&nbsp;Login">&nbsp;Login&nbsp;</a>
+      </li>
+      <li style="--clr:#00dc82">
+        <a *ngIf="!token" href="" data-text="&nbsp;Register">&nbsp;Register&nbsp;</a>
+      </li>
+      <div class="navbar-nav" *ngIf="token" >  
+        <li style="--clr:red">
+          <a class="nav-link" (click)="logOut();" type="button" routerLink="/login" data-text="&nbsp;LogOut">&nbsp;LogOut&nbsp;</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!token" routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!token" routerLink="/register">Register</a>
-        </li>
-      </ul>
-      <!-- Left links -->
-    </div>
-
-    <div class="d-flex align-items-center">
-        
-          <a class="nav-link" *ngIf="token" (click)="logOut();" type="button" routerLink="/login" data-text="&nbsp;LogOut">&nbsp;LogOut&nbsp; ></a>
-      
-      </div>
-    </div>
+        </div>
+     
   
-</nav>
-<!-- Navbar -->
+    </ul>
+  </div>
+  </body>
+  </nav> 

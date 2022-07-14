@@ -7,6 +7,7 @@ export class UserModel{
         public email: string,
         public password: string,
         public phone: string,
+        public gender: string,
         public age: string,
         public height: string,
         public weight: string,

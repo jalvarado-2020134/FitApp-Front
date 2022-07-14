@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit{
         private userRest: UserRestService,
         public router: Router
     ){
-        this.user = new UserModel('','','','','','','','','','','');
+        this.user = new UserModel('','','','','','','','','','','','');
     }
 
     ngOnInit(): void {

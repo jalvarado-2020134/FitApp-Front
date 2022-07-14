@@ -45,4 +45,8 @@ export class UserRestService{
         }
         return identity;
     }
+
+    register(params:{}){
+        return this.http.post(environment.baseUrl + 'user/register', params,{headers: this.httpOptions});
+    }
 }

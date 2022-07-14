@@ -36,7 +36,6 @@
 }
 
 .img-1 {
-  background-image: url('../../../assets/images/dietas.jpeg');
   background-size: cover;
   background-position: center;
 }
@@ -48,7 +47,6 @@
 }
 
 .img-3 {
-  background-image: url('../../../assets/images/dietas.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -109,5 +107,11 @@ h1{
 }
 
 #der{
-  background-color: #76ca9a;
+  background-color: #c2ffdc;
 }
+
+img{
+  background-size: cover;
+  background-position: center;
+}
+
