@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/users/user.component';
 import { SearchPipe } from './pipes/search.pipe';
 import {ProfileComponent} from './components/profile/profile.component';
+import {FoodComponent} from './components/foods/food.component';
+import { ClientPipe } from './pipes/client.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {ProfileComponent} from './components/profile/profile.component';
     UserComponent,
     SearchPipe,
     ProfileComponent,
+    FoodComponent,
+    ClientPipe,
   ],
   imports: [
     BrowserModule,
