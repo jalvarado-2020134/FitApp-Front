@@ -9,7 +9,10 @@
         <a *ngIf="!token"  routerLink="/login" data-text="&nbsp;Login">&nbsp;Login&nbsp;</a>
       </li>
       <li style="--clr:#00dc82">
-        <a *ngIf="!token" href="" data-text="&nbsp;Register">&nbsp;Register&nbsp;</a>
+        <a *ngIf="!token" routerLink="/register" data-text="&nbsp;Register">&nbsp;Register&nbsp;</a>
+      </li>
+      <li style="--clr:#1DE8E5">
+        <a *ngIf="token && identity.role === 'ADMIN' || identity.role === 'MANAGER'"   routerLink="/users" data-text="&nbsp;USERS">&nbsp;USERS&nbsp;</a>
       </li>
       <div class="navbar-nav" *ngIf="token" >  
         <li style="--clr:red">

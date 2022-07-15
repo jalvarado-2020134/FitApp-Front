@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent} from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserComponent } from './components/users/user.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { RegisterComponent } from './components/register/register.component';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
