@@ -14,6 +14,9 @@
       <li style="--clr:#1DE8E5">
         <a *ngIf="token && identity.role === 'ADMIN' || identity.role === 'MANAGER'"   routerLink="/users" data-text="&nbsp;USERS">&nbsp;USERS&nbsp;</a>
       </li>
+      <li style="--clr:#FFAE00">
+        <a *ngIf="token"  routerLink="/profile" data-text="&nbsp;MY_PROFILE">&nbsp;MY_PROFILE&nbsp;</a>
+      </li>
       <div class="navbar-nav" *ngIf="token" >  
         <li style="--clr:red">
           <a class="nav-link" (click)="logOut();" type="button" routerLink="/login" data-text="&nbsp;LogOut">&nbsp;LogOut&nbsp;</a>

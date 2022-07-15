@@ -49,4 +49,12 @@ export class UserRestService{
     register(params:{}){
         return this.http.post(environment.baseUrl + 'user/register', params,{headers: this.httpOptions});
     }
+
+    userUpdate(id:string,params:{}){
+        return this.http.put(environment.baseUrl + 'user/update/'+id,params,{headers:this.httpOptions});
+    }
+
+    deleteHotel(id:string){
+        return this.http.delete(environment.baseUrl + 'user/delete/' + id,{headers: this.httpOptions});
+    }
 }

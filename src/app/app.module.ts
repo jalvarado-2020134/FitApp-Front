@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/users/user.component';
 import { SearchPipe } from './pipes/search.pipe';
+import {ProfileComponent} from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SearchPipe } from './pipes/search.pipe';
     RegisterComponent,
     UserComponent,
     SearchPipe,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

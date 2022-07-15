@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit{
                 });
                 clearTimeout(this.timer);
             }
-        }, 3000);
+        }, 2000);
     }
 
     register(){
