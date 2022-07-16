@@ -1,16 +1,57 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="token && identity.role === 'CLIENT'" class="form-input mt-5">
-    <input [(ngModel)]="search" placeholder="Search yours Recipes by your Username">
-    <button type="submit" class="search-btn"><i class='fa fa-search'></i></button>
+<div *ngIf="token && identity.role === 'CLIENT'" class="card border-dark "
+    style="max-width: 30rem; margin: 1% 3%;">
+    <div class="card-header text-center " style="margin: 0% 10%;" >
+        <h5>{{usersRest.getIdentity().username}}</h5></div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="form-outline">
+                    <label class="form-label" for="form3Examplev2"></label>
+                    <input disabled name="name" type="text" id="form3Examplev2"
+                        placeholder="Age:  {{usersRest.getIdentity().age}}" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="form3Examplev3"></label>
+                    <input disabled name="surname" type="text" id="form3Examplev3"
+                        placeholder="Height:  {{usersRest.getIdentity().height}}" class="form-control ">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-outline">
+                    <label class="form-label" for="form3Examplev3"></label>
+                    <input disabled name="surname" type="text" id="form3Examplev3"
+                        placeholder="Weight:  {{usersRest.getIdentity().weight}}" class="form-control ">
+                </div>
+            </div>
+
+            <h4>{{usersRest.getIdentity().name}} {{usersRest.getIdentity().surname}}</h4>
+
+            <div *ngIf="token && identity.role === 'CLIENT'" class="form-input mt-0" style="max-width: 60rem; margin: 0% 0% -4% 140%; margin-top: 45%; ">
+                <input [(ngModel)]="search" placeholder="Search yours Recipes by your Username">
+                <button type="submit" class="search-btn"><i class='fa fa-search'></i></button>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
+
+
+
+
+
 
 <div class="container">
     <div class="row align-items-start">
         <div class="col">
             <div *ngIf="token && identity.role === 'MANAGER' || identity.role === 'ADMIN'" class="text-center m-3">
                 <button class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#newFood">
-                   <i class="fa-solid fa-circle-plus"></i> Save Food
+                    <i class="fa-solid fa-circle-plus"></i> Save Food
                 </button>
             </div>
             <hr>
@@ -51,10 +92,10 @@
                                 </span>
                             </th>
                             <th scope="col" style="background-color: rgb(231, 112, 14);">Client
-                                <span class="btn-group btn-group-sm" role="group">
+                                <span class="btn-group btn-group-sm text-center" role="group">
                                 </span>
                             </th>
-                            <th scope="col" class="mx-auto" style="background-color: rgb(231, 112, 14);">Actions</th>
+                            <th *ngIf="token && identity.role === 'MANAGER' || identity.role === 'ADMIN'" scope="col" class="mx-auto" style="background-color: rgb(231, 112, 14);">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,16 +107,18 @@
                             <td scope="row">{{food.snack}}</td>
                             <td scope="row">{{food.lunch}}</td>
                             <td scope="row">{{food.dinner}}</td>
-                            <td scope="row" class="text-center">Q.  {{food.aproxPrice}}</td>
+                            <td scope="row" class="text-center">Q. {{food.aproxPrice}}</td>
                             <th scope="row">{{food.client.username}}</th>
                             <td>
-                                <button (click)="getFood(food._id)" class="btn btn-warning me-2"
-                                data-bs-toggle="modal" data-bs-target="#updateFood">
+                                <div *ngIf="token && identity.role === 'MANAGER' || identity.role === 'ADMIN'">
+                                <button (click)="getFood(food._id)" class="btn btn-warning me-2" data-bs-toggle="modal"
+                                    data-bs-target="#updateFood">
                                     <i class="fa-solid fa-pen-to-square"></i>
-                                </button>    
+                                </button>
                                 <button (click)="deleteFood(food._id)" class="btn btn-danger">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -89,48 +132,48 @@
 <div class="modal fade" id="newFood" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-content">
                 <div class="modal-header" style="background-color: #217546;">
                     <h5 class="modal-title">Save Recipe</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form #newFoodForm="ngForm" >
+                    <form #newFoodForm="ngForm">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input [(ngModel)]="food.name" name="name"  type="text" class="form-control">
+                            <input [(ngModel)]="food.name" name="name" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Week</label>
-                            <input [(ngModel)]="food.week" name="week"  type="text" class="form-control">
+                            <input [(ngModel)]="food.week" name="week" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Day</label>
-                            <input [(ngModel)]="food.day" name="day"  type="text" class="form-control">
+                            <input [(ngModel)]="food.day" name="day" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">BreakFast</label>
-                            <input [(ngModel)]="food.breakfast" name="breakfast"  type="text" class="form-control">
+                            <input [(ngModel)]="food.breakfast" name="breakfast" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Snack</label>
-                            <input [(ngModel)]="food.snack" name="snack"  type="text" class="form-control">
+                            <input [(ngModel)]="food.snack" name="snack" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Lunch</label>
-                            <input [(ngModel)]="food.lunch" name="lunch"  type="text" class="form-control">
+                            <input [(ngModel)]="food.lunch" name="lunch" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Dinner</label>
-                            <input [(ngModel)]="food.dinner" name="dinner"  type="text" class="form-control">
+                            <input [(ngModel)]="food.dinner" name="dinner" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Price Aprox</label>
-                            <input [(ngModel)]="food.aproxPrice" name="aproxPrice"  type="text" class="form-control">
+                            <input [(ngModel)]="food.aproxPrice" name="aproxPrice" type="text" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">CLIENT</label>
-                            <select [(ngModel)]="food.client" name="role" class="form-select" aria-label="Defaul select example">
+                            <select [(ngModel)]="food.client" name="role" class="form-select"
+                                aria-label="Defaul select example">
                                 <option disabled value="" selected>Choose a Destinatary</option>
                                 <option *ngFor="let user of users" value="{{user._id}}">
                                     {{user.name}}
@@ -140,14 +183,14 @@
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Discard Changes
                             </button>
-                            <button type="submit" (click)="newFood(newFoodForm)" class="btn btn-success" data-bs-dismiss="modal">
+                            <button type="submit" (click)="newFood(newFoodForm)" class="btn btn-success"
+                                data-bs-dismiss="modal">
                                 Save Recipe
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 
@@ -155,11 +198,12 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #217546;">
-                <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-pencil" aria-hidden="true">Update Recipe</i> </h5>
+                <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-pencil" aria-hidden="true">Update
+                        Recipe</i> </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form (ngSubmit)="updateFood()" *ngIf="foodUpdate" >
+                <form (ngSubmit)="updateFood()" *ngIf="foodUpdate">
                     <div class="mb-3">
                         <label class="form-label">Name</label>
                         <input [(ngModel)]="foodUpdate.name" name="name" type="text" class="form-control">
@@ -193,14 +237,17 @@
                         <input [(ngModel)]="foodUpdate.aproxPrice" name="aproxPrice" type="text" class="form-control">
                     </div>
                     <label class="form-label">DESTINATARY</label>
-                    <select [(ngModel)]="foodUpdate.client"  name="client" class="form-select" aria-label="Default select example">
+                    <select [(ngModel)]="foodUpdate.client" name="client" class="form-select"
+                        aria-label="Default select example">
                         <option disabled value="">Update a Destinatary</option>
                         <option *ngFor="let user of users" value="{{user._id}}">{{user.username}}</option>
                     </select>
-                    <div class="modal-footer justify-content-center" >
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i>Discard
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
+                                class="fa fa-times-circle" aria-hidden="true"></i>Discard
                         </button>
-                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal"><i class="fa fa-floppy-o" aria-hidden="true"></i>Update User
+                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal"><i class="fa fa-floppy-o"
+                                aria-hidden="true"></i>Update User
                         </button>
 
                     </div>

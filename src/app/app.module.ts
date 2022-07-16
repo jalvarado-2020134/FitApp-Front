@@ -13,6 +13,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import {ProfileComponent} from './components/profile/profile.component';
 import {FoodComponent} from './components/foods/food.component';
 import { ClientPipe } from './pipes/client.pipe';
+import {RoutineComponent} from './components/routines/routine.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ClientPipe } from './pipes/client.pipe';
     ProfileComponent,
     FoodComponent,
     ClientPipe,
+    RoutineComponent,
   ],
   imports: [
     BrowserModule,

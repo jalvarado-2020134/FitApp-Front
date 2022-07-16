@@ -1,56 +1,50 @@
 import { Component, OnInit } from "@angular/core";
 import { UserRestService } from "src/app/services/userRest/user-rest.service";
-import { FoodRestService } from "src/app/services/foodRest/food-rest.service";
+import { RoutineRestService } from "src/app/services/routineRest/routine-rest.service";
 import { UserAdminRestService } from "src/app/services/userAdminRest/user-admin-rest.service";
-import { FoodModel } from "src/app/models/food.model";
-import { UserModel } from "src/app/models/user.model";
+import { RoutineModel } from "src/app/models/routine.model";
 import Swal from "sweetalert2";
 
 @Component({
-    selector: 'app-food',
-    templateUrl: './food.component.html',
-    styleUrls: ['./food.component.css']
+    selector: 'app-routine',
+    templateUrl: './routine.component.html',
+    styleUrls: ['./routine.component.css']
 })
 
-export class FoodComponent implements OnInit {
+export class RoutineComponent implements OnInit{
     token: any;
     identity: any;
     role: any;
-    foods: any;
-    food: FoodModel;
-    user: UserModel;
+    routines: any;
+    routine: RoutineModel;
     search: string = '';
     users: any;
-    foodUpdate: any;
-
+    routineUpdate: any;
 
     constructor(
         private userRest: UserAdminRestService,
-        private foodRest: FoodRestService,
-        public usersRest: UserRestService
-    ) {
-        this.food = new FoodModel('', '', '', '', '', '', '', '', '');
-        this.user = new UserModel('','','','','','','','','','','','');
-
-
+        private routineRest: RoutineRestService,
+        public usersRest: UserRestService,
+    ){
+        this.routine = new RoutineModel('','','','','',0,0,false,'');
     }
 
     ngOnInit(): void {
-        this.getFoods();
+        this.getRoutines();
         this.getUsers();
         this.token = this.usersRest.getToken();
         this.identity = this.usersRest.getIdentity();
         this.role = this.usersRest.getIdentity().role;
     }
 
-    getFoods() {
-        this.foods = [];
-        this.foodRest.getFoods().subscribe({
-            next: (res: any) => {
-                this.foods = res.foods,
-                    console.log(res);
+    getRoutines(){
+        this.routines =[];
+        this.routineRest.getRoutines().subscribe({
+            next:(res:any)=>{
+                this.routines = res.routines,
+                console.log(res);
             },
-            error: (err) => console.log(err)
+            error:(err)=> console.log(err)
         })
     }
 
@@ -65,46 +59,46 @@ export class FoodComponent implements OnInit {
         })
     }
 
-    newFood(newFoodForm: any) {
-        this.foodRest.newFood(this.food).subscribe({
-            next: (res: any) => {
+    newRoutine(newRoutineForm:any){
+        this.routineRest.newRoutine(this.routine).subscribe({
+            next:(res:any)=>{
                 Swal.fire({
                     icon: 'success',
                     title: res.message,
                     confirmButtonColor: '#28B463'
                 });
-                this.getFoods();
-                newFoodForm.reset();
+                this.getRoutines();
+                newRoutineForm.reset();
             },
-            error: (err: any) => {
+            error:(err:any)=>{
                 Swal.fire({
                     icon: 'error',
                     title: err.error.message || err.error,
                     confirmButtonColor: '#E74C3C'
                 });
-                newFoodForm.reset();
+                newRoutineForm.reset();
             }
         })
     }
 
-    getFood(id: string) {
-        this.foodRest.getFood(id).subscribe({
-            next: (res: any) => {
-                this.foodUpdate = res.food;
+    getRoutine(id:string){
+        this.routineRest.getRoutine(id).subscribe({
+            next:(res:any)=>{
+                this.routineUpdate = res.routine;
             },
-            error: (err) => { alert(err.error.message) }
+            error:(err)=>{alert(err.error.message)}
         })
     }
 
-    updateFood() {
-        this.foodRest.updateFood(this.foodUpdate._id, this.foodUpdate).subscribe({
-            next: (res: any) => {
+    updateRoutine(){
+        this.routineRest.updateRoutine(this.routineUpdate._id, this.routineUpdate).subscribe({
+            next:(res:any)=>{
                 Swal.fire({
                     icon: 'success',
                     title: res.message,
                     confirmButtonColor: '#E74C3C'
                 });
-                this.getFoods();
+                this.getRoutines();
             },
             error:(err)=>{
                 Swal.fire({
@@ -112,13 +106,12 @@ export class FoodComponent implements OnInit {
                     title: err.error.message || err.error,
                 });
             },
-
         })
     }
 
-    deleteFood(id:string){
+    deleteRoutine(id:string){
         Swal.fire({
-            title: 'Are you sure you want to delete this recipe?',
+            title: 'Are you sure you want to delete this routine?',
             showDenyButton: true,
             confirmButtonText: 'Delete',
             denyButtonText: 'Cancel',
@@ -126,27 +119,26 @@ export class FoodComponent implements OnInit {
             denyButtonColor: '#118CDC'
         }).then((result)=>{
             if(result.isConfirmed){
-                this.foodRest.deleteFood(id).subscribe({
+                this.routineRest.deleteRoutine(id).subscribe({
                     next:(res:any)=>{
                         Swal.fire({
                             icon: 'success',
-                            title: res.message + '  "' + res.deleteFood.name + '"  '  +' has been deleted ',
+                            title: res.message + '  "' + res.deleteRoutine.name + '"  '  +' has been deleted ',
                             position: 'center',
                             showConfirmButton: true,
                             timer: 2000
                         });
-                        this.getFoods();
+                        this.getRoutines();
                     },
                     error:(err)=>{
                         Swal.fire({
                             icon: 'error',
                             title: err.error.message
                         })
-                        this.getFoods();
+                        this.getRoutines();
                     }
                 })
             }
         })
     }
 }
-    
