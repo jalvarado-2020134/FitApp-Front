@@ -1,5 +1,8 @@
 
-
+hr{
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .card-body{
     border-color: black;
@@ -62,6 +65,8 @@ text-align: center;
 	flex-grow: 1;
 	padding: 0 16px;
 	height: 100%;
+  margin-top: -44%;
+
 	border: none;
 	border-radius: 36px 0 0 36px;
 	outline: none;
@@ -74,6 +79,8 @@ text-align: center;
 	width: 36px;
 	height: 100%;
 	display: flex;
+  margin-top: -44%;
+
 	justify-content: center;
 	align-items: center;
 	background: #003474;
@@ -85,10 +92,6 @@ text-align: center;
 	cursor: pointer;
 }
 
-hr
-{
-	color: grey
-}
 
 .contenedor
 {

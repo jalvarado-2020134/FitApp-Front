@@ -14,6 +14,7 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {FoodComponent} from './components/foods/food.component';
 import { ClientPipe } from './pipes/client.pipe';
 import {RoutineComponent} from './components/routines/routine.component';
+import {AboutUsComponent} from './components/aboutUs/aboutUs.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {RoutineComponent} from './components/routines/routine.component';
     FoodComponent,
     ClientPipe,
     RoutineComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { UserComponent } from './components/users/user.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FoodComponent } from './components/foods/food.component';
 import {RoutineComponent} from './components/routines/routine.component';
+import {AboutUsComponent} from './components/aboutUs/aboutUs.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'users', component: UserComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'food', component: FoodComponent},
-  {path: 'routine', component: RoutineComponent}
+  {path: 'routine', component: RoutineComponent},
+  {path: 'about', component: AboutUsComponent},
 
 ];
 

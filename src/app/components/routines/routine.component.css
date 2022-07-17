@@ -1,8 +1,4 @@
 
-
-
-
-
 .card-body{
     border-color: black;
 }
@@ -62,6 +58,7 @@ text-align: center;
 }
 .form-input input {
 	flex-grow: 1;
+  margin-top: -44%;
 	padding: 0 16px;
 	height: 100%;
 	border: none;
@@ -75,6 +72,7 @@ text-align: center;
 .form-input button {
 	width: 36px;
 	height: 100%;
+  margin-top: -44%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -177,6 +175,7 @@ input{
    background-color:#e6fdf0;
    background-size: auto;
 }
+
 
 
 th

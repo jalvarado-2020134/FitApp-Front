@@ -21,11 +21,14 @@
         <a *ngIf="token"  routerLink="/routine" data-text="&nbsp;ROUTINES">&nbsp;ROUTINES&nbsp;</a>
       </li>
       <li style="--clr:#FFAE00">
+        <a *ngIf="!token"  routerLink="/about" data-text="&nbsp;ABOUT_US">&nbsp;ABOUT_US&nbsp;</a>
+      </li>
+      <li style="--clr:#FFAE00">
         <a *ngIf="token"  routerLink="/profile" data-text="&nbsp;MY_PROFILE">&nbsp;MY_PROFILE&nbsp;</a>
       </li>
       <div class="navbar-nav" *ngIf="token" >  
         <li style="--clr:#DD3C1F">
-          <a class="nav-link" (click)="logOut();" type="button" routerLink="/login" data-text="&nbsp;LogOut">&nbsp;LogOut&nbsp;</a>
+          <a class="nav-link" (click)="logOut();" type="button" routerLink="/" data-text="&nbsp;LogOut">&nbsp;LogOut&nbsp;</a>
         </li>
         </div>
      
