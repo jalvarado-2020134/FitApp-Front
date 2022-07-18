@@ -20,6 +20,8 @@ export class RoutineComponent implements OnInit{
     search: string = '';
     users: any;
     routineUpdate: any;
+    usersClient: any
+
 
     constructor(
         private userRest: UserAdminRestService,
@@ -32,6 +34,7 @@ export class RoutineComponent implements OnInit{
     ngOnInit(): void {
         this.getRoutines();
         this.getUsers();
+        this.getClients();
         this.token = this.usersRest.getToken();
         this.identity = this.usersRest.getIdentity();
         this.role = this.usersRest.getIdentity().role;
@@ -45,6 +48,14 @@ export class RoutineComponent implements OnInit{
                 console.log(res);
             },
             error:(err)=> console.log(err)
+        })
+    }
+
+    getClients(){
+        this.userRest.getClients().subscribe({
+            next:(res:any)=>{
+                this.usersClient = res.usersExist
+            }
         })
     }
 

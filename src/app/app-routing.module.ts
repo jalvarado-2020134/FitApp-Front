@@ -8,6 +8,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FoodComponent } from './components/foods/food.component';
 import {RoutineComponent} from './components/routines/routine.component';
 import {AboutUsComponent} from './components/aboutUs/aboutUs.component';
+import {RestaurantComponent} from './components/restaurants/restaurant.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +20,7 @@ const routes: Routes = [
   {path: 'food', component: FoodComponent},
   {path: 'routine', component: RoutineComponent},
   {path: 'about', component: AboutUsComponent},
+  {path: 'restaurant', component: RestaurantComponent},
 
 ];
 

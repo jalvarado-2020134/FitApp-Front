@@ -22,6 +22,8 @@ export class FoodComponent implements OnInit {
     search: string = '';
     users: any;
     foodUpdate: any;
+    usersClient: any
+
 
 
     constructor(
@@ -38,6 +40,7 @@ export class FoodComponent implements OnInit {
     ngOnInit(): void {
         this.getFoods();
         this.getUsers();
+        this.getClients();
         this.token = this.usersRest.getToken();
         this.identity = this.usersRest.getIdentity();
         this.role = this.usersRest.getIdentity().role;
@@ -62,6 +65,14 @@ export class FoodComponent implements OnInit {
             },
 
             error: (err) => console.log(err)
+        })
+    }
+
+    getClients(){
+        this.userRest.getClients().subscribe({
+            next:(res:any)=>{
+                this.usersClient = res.usersExist
+            }
         })
     }
 

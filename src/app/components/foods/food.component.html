@@ -175,7 +175,7 @@
                             <select [(ngModel)]="food.client" name="role" class="form-select"
                                 aria-label="Defaul select example">
                                 <option disabled value="" selected>Choose a Destinatary</option>
-                                <option *ngFor="let user of users" value="{{user._id}}">
+                                <option *ngFor="let user of usersClient" value="{{user._id}}">
                                     {{user.name}}
                                 </option>
                             </select>
@@ -240,7 +240,7 @@
                     <select [(ngModel)]="foodUpdate.client" name="client" class="form-select"
                         aria-label="Default select example">
                         <option disabled value="">Update a Destinatary</option>
-                        <option *ngFor="let user of users" value="{{user._id}}">{{user.username}}</option>
+                        <option *ngFor="let user of usersClient" value="{{user._id}}">{{user.username}}</option>
                     </select>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
