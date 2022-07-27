@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
       icon: 'success',
       title: 'Bye,' + '  ' + 'Good Luck'
     })
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/home');
   }
 
 
