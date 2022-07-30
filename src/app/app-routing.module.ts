@@ -9,6 +9,7 @@ import { FoodComponent } from './components/foods/food.component';
 import {RoutineComponent} from './components/routines/routine.component';
 import {AboutUsComponent} from './components/aboutUs/aboutUs.component';
 import {RestaurantComponent} from './components/restaurants/restaurant.component';
+import {MapComponent} from './components/maps/maps.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'routine', component: RoutineComponent},
   {path: 'about', component: AboutUsComponent},
   {path: 'restaurant', component: RestaurantComponent},
+  {path: 'maps', component: MapComponent},
 
 ];
 

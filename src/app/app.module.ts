@@ -17,6 +17,7 @@ import {RoutineComponent} from './components/routines/routine.component';
 import {AboutUsComponent} from './components/aboutUs/aboutUs.component';
 import {RestaurantComponent} from './components/restaurants/restaurant.component';
 import {CalificationPipe} from './pipes/ranking.pipe';
+import {MapComponent} from './components/maps/maps.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {CalificationPipe} from './pipes/ranking.pipe';
     AboutUsComponent,
     RestaurantComponent,
     CalificationPipe,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

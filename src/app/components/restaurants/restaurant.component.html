@@ -1,8 +1,9 @@
 <app-navbar></app-navbar>
 
 
+<
 
-<div *ngIf="token && identity.role === 'MANAGER' || identity.role === 'ADMIN'" class="text-center m-3">
+<div *ngIf="token && identity.role === 'MANAGER' || identity.role === 'ADMIN'" class="text-center m-1">
     <button class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#newRestaurant">
         <i class="fa-solid fa-circle-plus"></i> Save Restaurant
     </button>
@@ -11,6 +12,12 @@
 
 <h2 *ngIf="token && identity.role === 'CLIENT'" class="text-center">From Fitapp we bring you restaurant recommendations
 </h2>
+<div *ngIf="token && identity.role === 'CLIENT'" class="text-center m-3">
+    <button routerLink="/maps" class="btn btn-warning m-2" >
+        <i class="fa-solid fa-circle-plus"></i> Open a Map
+    </button>
+</div>
+
 <div class="wrapper" *ngIf="restaurants">
     <div class="card" *ngFor="let restaurant of restaurants">
         <img src="../../../assets/images/logo.png" class="card-img-top" height="50" alt="" style="margin-top: -9%;">

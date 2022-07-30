@@ -1,0 +1,24 @@
+<button  routerLink="/restaurant" class="text-dark btn btn-outline-warning btn-icon-split m-2" 
+    style="margin: 0% 6%;">Back To Restaurants</button>
+<h3 class="text-center">Find Your Restaurants</h3>
+
+    <div class="mb-3">
+        <select [(ngModel)]="restaurant.name" name="role" class="form-select"
+            aria-label="Defaul select example">
+            <option disabled value="" selected>View your Restaurants</option>
+            <option *ngFor="let restaurant of restaurants">
+                {{restaurant.name}} | {{restaurant.address}}
+            </option>
+        </select>
+    </div>
+<div class="" style="margin-top: -8%; margin-right: -3%;">
+    <div>
+        <div id="map"></div>
+    </div>
+</div>
+
+
+<div class="bg-secondary">
+
+</div>
+
